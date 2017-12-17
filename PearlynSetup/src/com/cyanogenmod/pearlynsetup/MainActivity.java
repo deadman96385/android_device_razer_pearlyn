@@ -18,6 +18,7 @@ package com.cyanogenmod.pearlynsetup;
 import android.os.Bundle;
 import android.app.Activity;
 import android.bluetooth.*;
+import android.os.SystemProperties;
 import android.content.pm.PackageManager;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -33,22 +34,34 @@ public class MainActivity extends Activity {
 			BluetoothAdapter mBtAdapter = BluetoothAdapter.getDefaultAdapter(); 
 			if (! mBtAdapter.isEnabled()) {
 			mBtAdapter.enable(); 
+			String defaultDeviceName = SystemProperties.get("ro.product.model");
+            if (defaultDeviceName == null) {
+                defaultDeviceName = "Forge";
+            }
+            mBtAdapter.setName(defaultDeviceName);
 			}
-		/* Call IOSBeamService */
-			Intent i = new Intent();		 
- 			String pkg = "com.razerzone.pearlyn.beam.iosservice";
- 			String cls = "com.razerzone.pearlyn.beam.iosservice.BeamService"; 
- 			i.setComponent(new ComponentName(pkg, cls));
- 			startService(i);
- 		/* Draw the layout */	
- 			setContentView(R.layout.main);	
-        
+			
         PackageManager pm = getPackageManager();
         try {
-            pm.getPackageInfo("com.google.android.gsf",PackageManager.GET_ACTIVITIES);
+			/* Check if Google Play Services exists */
+            pm.getPackageInfo("com.google.android.gms",PackageManager.GET_ACTIVITIES);
+            
+		/* Call ATVRemoteService */
+			Intent i = new Intent();		 
+ 			String pkg = "com.google.android.tv.remote.service";
+ 			String cls = "com.google.android.tv.remote.service.BootReceiver"; 
+ 			i.setComponent(new ComponentName(pkg, cls));
+ 			startService(i);
+ 			
+ 		/* Draw the layout */	
+ 			setContentView(R.layout.main);	
+ 			
+        /* Disable Google Services Framework */
             managepackage ("com.google.android.gsf","com.google.android.gsf.settings.ConfirmLgaaylActivity",0);
-			}	
-			catch (PackageManager.NameNotFoundException e) {}
+		}
+		catch (PackageManager.NameNotFoundException e) {
+				disableandkill();
+			}
 
     }
     
