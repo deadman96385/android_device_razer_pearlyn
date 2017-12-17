@@ -46,11 +46,9 @@ public class MainActivity extends Activity {
 			/* Check if Google Play Services exists */
             pm.getPackageInfo("com.google.android.gms",PackageManager.GET_ACTIVITIES);
             
-		/* Call ATVRemoteService */
+		/* Call RemoteControlService */
 			Intent i = new Intent();		 
- 			String pkg = "com.google.android.tv.remote.service";
- 			String cls = "com.google.android.tv.remote.service.BootReceiver"; 
- 			i.setComponent(new ComponentName(pkg, cls));
+ 			i.setClassName("com.google.android.athome.remotecontrol", "com.google.android.athome.remotecontrol.RemoteControlService");
  			startService(i);
  			
  		/* Draw the layout */	
