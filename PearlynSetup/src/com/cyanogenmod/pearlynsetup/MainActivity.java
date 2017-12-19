@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
             }
             mBtAdapter.setName(defaultDeviceName);
 			}
+			mBtAdapter.startDiscovery();
 			
         PackageManager pm = getPackageManager();
         try {
@@ -48,14 +49,12 @@ public class MainActivity extends Activity {
             
 		/* Call RemoteControlService */
 			Intent i = new Intent();		 
- 			i.setClassName("com.google.android.athome.remotecontrol", "com.google.android.athome.remotecontrol.RemoteControlService");
+ 			i.setClassName("com.google.android.tv.remote.service", "com.google.android.tv.remote.service.DiscoveryService");
  			startService(i);
  			
  		/* Draw the layout */	
  			setContentView(R.layout.main);	
  			
-        /* Disable Google Services Framework */
-            managepackage ("com.google.android.gsf","com.google.android.gsf.settings.ConfirmLgaaylActivity",0);
 		}
 		catch (PackageManager.NameNotFoundException e) {
 				disableandkill();
@@ -81,8 +80,7 @@ public class MainActivity extends Activity {
 	{			
 			/* Disable Package */
 			managepackage ("com.cyanogenmod.pearlynsetup","com.cyanogenmod.pearlynsetup.MainActivity",0);
-			/* Re-enable Provision */
-			managepackage ("com.google.android.gsf","com.google.android.gsf.settings.ConfirmLgaaylActivity",1);
+
 			/* Kill app */	
 			finish();
 	}
