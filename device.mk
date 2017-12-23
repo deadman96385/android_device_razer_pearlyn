@@ -116,10 +116,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	wpa_supplicant
 	
-# CMActions & PearlynSetup
+# CMActions
 PRODUCT_PACKAGES += \
-	CMActions \
-	PearlynSetup
+	CMActions
 
 # Permissions
 PRODUCT_COPY_FILES += \
