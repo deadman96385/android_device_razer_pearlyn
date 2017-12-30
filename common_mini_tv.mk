@@ -97,13 +97,7 @@ PRODUCT_PACKAGES += \
 # Required CM packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
-    CMAudioService \
-    Profiles
-
-# Optional CM packages
-PRODUCT_PACKAGES += \
-    libemoji \
-    LiveWallpapersPicker
+    CMAudioService
 
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += \
@@ -113,13 +107,9 @@ PRODUCT_PACKAGES += \
 # Custom CM packages
 PRODUCT_PACKAGES += \
     CMSettingsProvider \
-    Updater \
-    WallpaperPicker
-    
-# TV
-PRODUCT_PACKAGES += AppDrawer
-DEVICE_PACKAGE_OVERLAYS += vendor/cm/overlay/tv    
-    
+    AppDrawer \
+    Updater
+
 # Extra tools in CM
 PRODUCT_PACKAGES += \
     7z \
@@ -290,9 +280,17 @@ ifeq ($(CM_BUILDTYPE), RELEASE)
     endif
 else
     ifeq ($(CM_VERSION_MAINTENANCE),0)
-        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
+        ifeq ($(CM_BUILDTYPE), UNOFFICIAL)
+            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d_%H%M%S)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
+        else
+            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
+        endif
     else
-        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
+        ifeq ($(CM_BUILDTYPE), UNOFFICIAL)
+            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d_%H%M%S)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
+        else
+            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(CM_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)$(CM_EXTRAVERSION)-$(CM_BUILD)
+        endif
     endif
 endif
 
