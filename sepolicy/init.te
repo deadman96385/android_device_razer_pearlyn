@@ -7,6 +7,7 @@ allow init diag_device:chr_file unlink;
 #debugfs access
 userdebug_or_eng(`
 typeattribute init qti_debugfs_domain;
+allow init debugfs:dir mounton;
 allow init debugfs:dir r_dir_perms;
 allow init debugfs:file rw_file_perms;
 ')
