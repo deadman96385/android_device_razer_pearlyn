@@ -17,6 +17,7 @@ package com.cyanogenmod.cmactions;
 
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
@@ -25,23 +26,30 @@ import android.util.Log;
 import java.io.*;
 import java.util.prefs.*;
 
-public class DeviceModeFragment extends PreferenceFragment {
+public class PreferencesFragment extends PreferenceFragment {
 
     private static final String DEVICE_MODE_KEY = "device_mode";
     private static final String DEVICE_MODE_PROPERTY = "persist.sys.rzr.device_mode";
+    private static final String OVERSCAN_KEY = "overscan";
 
     private SwitchPreference mDeviceModePreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.device_mode);
+        addPreferencesFromResource(R.xml.preferences);
+        
+        // Device Mode PReference
         boolean DeviceModeEnabled = isDeviceModeEnabled();
         mDeviceModePreference =
             (SwitchPreference) findPreference(DEVICE_MODE_KEY);
         mDeviceModePreference.setChecked(DeviceModeEnabled);
         mDeviceModePreference.setOnPreferenceChangeListener(mDeviceModePrefListener);
-    }
+        
+        // Overscan Preference
+        Preference mOverscanPreference = findPreference(OVERSCAN_KEY);
+        
+	}
     
         // Get the system property
     public static Boolean isDeviceModeEnabled() {
@@ -110,4 +118,20 @@ public class DeviceModeFragment extends PreferenceFragment {
 			return true;
         }
     };
+    
+    
+    private Preference.OnPreferenceClickListener mOverscanPrefListener = new Preference.OnPreferenceClickListener() {
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+       launchoverscan();
+       return true;
+    }
+	};
+
+    private void launchoverscan() {
+		try {
+		String[] cmd = { "/system/bin/sh", "-c", "am start -n com.google.android.tungsten.overscan/.CalibratorActivity" };	
+		Runtime.getRuntime().exec(cmd);
+		} catch (java.io.IOException e) {}
+		}
 }

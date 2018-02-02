@@ -18,4 +18,6 @@
      <string name="cmactions_title">Forge TV Options</string>
      <string name="device_mode_title">Device Mode</string>
      <string name="device_mode_desc">Set on/off to use adb over usb port. This will disconnect any usb stick/drive attached.</string>
+     <string name="overscan_title">Overscan Calibrator</string>
+     <string name="overscan_desc">Allows you to easily manually adjust the screen resolution to fit your Forge TV.</string>
 </resources>

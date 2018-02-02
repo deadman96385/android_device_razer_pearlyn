@@ -23,6 +23,11 @@
             android:defaultValue="false"
             android:title="@string/device_mode_title"
             android:summary="@string/device_mode_desc" />
+       <Preference  
+			android:key="overscan" 
+			android:defaultValue="false"   
+			android:title="@string/overscan_title"
+            android:summary="@string/overscan_desc" />  
 
     </PreferenceCategory>
 
