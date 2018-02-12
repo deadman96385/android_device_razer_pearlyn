@@ -116,7 +116,7 @@ on boot
     # Enable writing to brightness node under torch-light from userspace
     chown system system /sys/class/leds/torch-light/brightness
 
-on property:dev.bootcomplete=1
+on property:sys.boot_completed=1
     start mpdecision
 
 # Allow usb charging to be disabled peristently
