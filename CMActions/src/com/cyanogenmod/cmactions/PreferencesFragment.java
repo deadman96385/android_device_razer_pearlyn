@@ -48,6 +48,7 @@ public class PreferencesFragment extends PreferenceFragment {
         
         // Overscan Preference
         Preference mOverscanPreference = findPreference(OVERSCAN_KEY);
+        mOverscanPreference.setOnPreferenceClickListener(mOverscanPrefListener);
         
 	}
     
