@@ -119,10 +119,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	wpa_supplicant
 	
-# CMActions & LeanbackCustomize
+# CMActions
 PRODUCT_PACKAGES += \
-	CMActions \
-	LeanbackCustomize
+	CMActions
 
 # Permissions
 PRODUCT_COPY_FILES += \
