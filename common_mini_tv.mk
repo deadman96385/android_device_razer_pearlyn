@@ -108,7 +108,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CMSettingsProvider \
     AppDrawer \
-    LineageCustomizer \
     Updater
 
 # Extra tools in CM
