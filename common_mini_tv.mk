@@ -109,7 +109,6 @@ PRODUCT_PACKAGES += \
     CMSettingsProvider \
     AppDrawer \
     LineageCustomizer \
-    LockClock \
     Updater
 
 # Extra tools in CM
