@@ -38,7 +38,7 @@ BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 vma
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_CONFIG := pearlyn_defconfig
+TARGET_KERNEL_CONFIG := lineage_pearlyn_defconfig
 TARGET_KERNEL_SOURCE := kernel/razer/pearlyn
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
 
