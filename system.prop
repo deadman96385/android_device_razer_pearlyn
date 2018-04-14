@@ -5,7 +5,7 @@ persist.sys.hdmi.addr.playback=4
 persist.demo.hdmirotationlock=false
 
 # Netflix Workaround
-ro.nrdp.modelgroup=XIAOMIM12TRIAL
+ro.nrdp.modelgroup=SHIELDANDROIDTV
 
 # Stagefright
 media.stagefright.less-secure=true 
