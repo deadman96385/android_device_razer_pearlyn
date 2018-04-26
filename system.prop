@@ -82,3 +82,6 @@ persist.sys.wfd.virtual=0
 
 # Drm
 drm.service.enabled=true
+
+# Qualcomm
+ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so
