@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_label">LeanbackCustomizer</string>
+
+    <string name="partner_row_title">DVR</string>
+    <string name="apps_row_title">Aplicaciones</string>
+    <string name="games_row_title">Juegos</string>
+    <string name="settings_row_title">Configuración</string>
+
+    <!-- Content description for Live Channels App -->
+    <string name="live_tv">TV en Vivo</string>
+    <!-- Content description for banner to encourage users to download Live Channels App -->
+    <string name="try_live_tv">Prueba la TV en Vivo</string>
+
+</resources>
