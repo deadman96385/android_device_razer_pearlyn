@@ -47,7 +47,6 @@ vendor/razer/pearlyn/proprietary/bin/efsks
 vendor/razer/pearlyn/proprietary/bin/adsprpcd
 vendor/razer/pearlyn/proprietary/bin/qseecom_sample_client
 vendor/razer/pearlyn/proprietary/bin/ethtool
-vendor/razer/pearlyn/proprietary/bin/make_f2fs
 vendor/razer/pearlyn/proprietary/bin/mdm_helper
 vendor/razer/pearlyn/proprietary/bin/iwconfig
 vendor/razer/pearlyn/proprietary/bin/qseecomd
@@ -81,7 +80,6 @@ vendor/razer/pearlyn/proprietary/lib/libqomx_core.so
 vendor/razer/pearlyn/proprietary/lib/libdashplayer.so
 vendor/razer/pearlyn/proprietary/lib/libantradio.so
 vendor/razer/pearlyn/proprietary/lib/libdivxdrmdecrypt.so
-vendor/razer/pearlyn/proprietary/lib/libhdmi.so
 vendor/razer/pearlyn/proprietary/lib/libiw.so
 vendor/razer/pearlyn/proprietary/lib/libextmedia_jni.so
 vendor/razer/pearlyn/proprietary/lib/libGLES_trace.so
